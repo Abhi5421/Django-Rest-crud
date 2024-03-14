@@ -34,12 +34,13 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': (
+    'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',  # Enter your username and password
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',  # Key: Authorization, Value: Bearer <your_token>
-    )
+        # 'rest_framework.authentication.SessionAuthentication'
+    ],
 }
 
 SIMPLE_JWT = {
@@ -57,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_simplejwt',
     'crud_api',
     'api_auth',
     'drf_yasg'

@@ -28,6 +28,7 @@ def ApiOverview(request):
 
 
 @api_view(['POST'])
+@authentication_classes([JWTAuthentication])
 def add_items(request):
     item = ItemSerializer(data=request.data)
 
